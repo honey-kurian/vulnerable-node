@@ -1,10 +1,10 @@
 pipeline {
-    agent any
-    //{
-        //docker {
-            //image 'node:19.4.0-bullseye-slim'
-        //}
-    //}
+    agent
+    {
+        docker {
+            image 'node:19.4.0-bullseye-slim'
+        }
+    }
 
     environment {
         APP_NAME        = "vuln-node-proj"
