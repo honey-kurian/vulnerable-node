@@ -16,12 +16,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '/opt/homebrew/bin/npm install'
+                sh 'npm install'
             }
         }
         stage('Install CycloneDX') {
             steps {
-                sh '/opt/homebrew/bin/npm install --global @cyclonedx/cyclonedx-npm'
+                sh 'npm install --global @cyclonedx/cyclonedx-npm'
             }
         }
 
