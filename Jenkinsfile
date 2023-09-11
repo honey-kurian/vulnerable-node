@@ -1,10 +1,10 @@
 pipeline {
-    agent
-    {
-        docker {
-            image 'node:19.4.0-bullseye-slim'
-        }
-    }
+    agent any
+    //{
+        //docker {
+            //image 'node:19.4.0-bullseye-slim'
+        //}
+    //}
 
     environment {
         APP_NAME        = "vuln-node-proj"
@@ -16,12 +16,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                withNPM(npmrcConfig: 'my-custom-nprc') {
+                    sh 'npm install'
+                }
             }
         }
         stage('Install CycloneDX') {
             steps {
-                sh 'npm install --global @cyclonedx/cyclonedx-npm'
+                withNPM(npmrcConfig: 'my-custom-nprc') {
+                    sh 'npm install --global @cyclonedx/cyclonedx-npm'
+                }
             }
         }
 
