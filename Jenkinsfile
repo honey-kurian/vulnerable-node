@@ -14,7 +14,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        /* stage('Build') {
             steps {
                 withNPM(npmrcConfig: 'my-custom-nprc') {
                     sh 'npm install'
@@ -23,9 +23,7 @@ pipeline {
         }
         stage('Install CycloneDX') {
             steps {
-                withNPM(npmrcConfig: 'my-custom-nprc') {
-                    sh 'npm install --global @cyclonedx/cyclonedx-npm'
-                }
+                sh 'npm install --global @cyclonedx/cyclonedx-npm'
             }
         }
 
@@ -33,7 +31,7 @@ pipeline {
           steps {
             sh 'cyclonedx-npm --output-file bom.json'
           }
-        }
+        }*/
 
         stage('Load Dependency Track') {
             steps {
