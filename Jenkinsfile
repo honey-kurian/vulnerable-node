@@ -1,7 +1,7 @@
 pipeline {
     agent
     {
-        docker {
+        /Applications/Docker.app/Contents/Resources/bin/docker {
             image 'node:19.4.0-bullseye-slim'
         }
     }
